@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PoELadder.Models.EntryDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <p>Something went wrong.</p>
+}
+else
+{
+    <br>
+    <br>
+    <br>
+    <table id="profiles" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Level</th>
+                <th>Account Name</th>
+                <th>Character Name</th>
+                <th>Class</th>
+                <th>Depth</th>                
+                <th>Challenges completed</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+            <tr>
+                <td>@entry.Rank</td>
+                <td>@entry.Character.Level</td>
+                @if (entry.Account.Twitch == null)
+                {
+                    <td>@entry.Account.Name</td>
+                }
+                else
+                {
+                    string link = "https://www.twitch.tv/" + entry.Account.Twitch.Name;
+            <td><a href=@link><img src='@Url.Content("~/Content/twitch.png")' style="height: 1em; width: 1em;" /></a>   @entry.Account.Name</td>
+                }                
+                <td>@entry.Character.Name</td>
+                <td>@entry.Character.Class</td>
+                @if (entry.Character.Depth == null)
+                {
+                    <td>0</td>
+                }
+                else
+                {
+                    <td>@entry.Character.Depth.Solo</td>
+                }
+                <td>@entry.Account.Challenges.Total</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#profiles").DataTable();
+        });
+    </script>
+}
