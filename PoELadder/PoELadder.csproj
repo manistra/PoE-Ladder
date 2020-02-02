@@ -182,6 +182,7 @@
     <Compile Include="Dtos\CharacterDto.cs" />
     <Compile Include="Dtos\DepthDto.cs" />
     <Compile Include="Dtos\EntryDto.cs" />
+    <Compile Include="Dtos\Leagues\EntriesLeaguesDto.cs" />
     <Compile Include="Dtos\RootobjectDto.cs" />
     <Compile Include="Dtos\TwitchDto.cs" />
     <Compile Include="Global.asax.cs">
@@ -436,6 +437,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\LadderView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

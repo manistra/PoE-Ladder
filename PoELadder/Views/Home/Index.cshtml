@@ -1,68 +1,23 @@
-﻿@model IEnumerable<PoELadder.Models.EntryDto>
+﻿@model IEnumerable<PoELadder.Dtos.Leagues.EntriesLeaguesDto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@if (!Model.Any())
-{
-    <p>Something went wrong.</p>
-}
-else
-{
-    <br>
-    <br>
-    <br>
-    <table id="profiles" class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Level</th>
-                <th>Account Name</th>
-                <th>Character Name</th>
-                <th>Class</th>
-                <th>Depth</th>                
-                <th>Challenges completed</th>                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var entry in Model)
-            {
-            <tr>
-                <td>@entry.Rank</td>
-                <td>@entry.Character.Level</td>
-                @if (entry.Account.Twitch == null)
-                {
-                    <td>@entry.Account.Name</td>
-                }
-                else
-                {
-                    string link = "https://www.twitch.tv/" + entry.Account.Twitch.Name;
-            <td><a href=@link><img src='@Url.Content("~/Content/twitch.png")' style="height: 1em; width: 1em;" /></a>   @entry.Account.Name</td>
-                }                
-                <td>@entry.Character.Name</td>
-                <td>@entry.Character.Class</td>
-                @if (entry.Character.Depth == null)
-                {
-                    <td>0</td>
-                }
-                else
-                {
-                    <td>@entry.Character.Depth.Solo</td>
-                }
-                <td>@entry.Account.Challenges.Total</td>
-            </tr>
-            }
-        </tbody>
-    </table>
-}
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-@section scripts
+@using (Html.BeginForm("LadderView", "Home"))
 {
-    <script>
-        $(document).ready(function () {
-            var table = $("#profiles").DataTable();
-        });
-    </script>
+    <div>
+        <h3 style="margin: auto; width: 100%;  text-align: center;">Select a league:</h3>
+        <div class="form-group" style="margin: auto; width: 25%;  text-align: center;">
+            @Html.DropDownList("Leagues", (IEnumerable<SelectListItem>)ViewBag.Leagues, new { @class = "form-control" })
+        </div>
+        <br>
+        <button style="width:15%; margin:0 auto; display:block;" type="submit" class="btn" id="checkout">Go</button>
+    </div>
 }
