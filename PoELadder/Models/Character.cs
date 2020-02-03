@@ -13,5 +13,6 @@ namespace PoELadder.Models
         public int Level { get; set; }       
         public string Class { get; set; }        
         public string Experience { get; set; }
+        public Depth Depth { get; set; }
     }
 }

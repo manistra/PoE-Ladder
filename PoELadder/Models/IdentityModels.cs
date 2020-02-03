@@ -20,7 +20,7 @@ namespace PoELadder.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Rootobject> Rootobjects { get; set; }
+        
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Account> Accounts { get; set; }

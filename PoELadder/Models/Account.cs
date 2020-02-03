@@ -10,6 +10,6 @@ namespace PoELadder.Models
     {
         public int Id { get; set; }        
         public string Name { get; set; }
-        public Twitch Twitch { get; set; }
+        public Challenges Challenges { get; set; }
     }
 }

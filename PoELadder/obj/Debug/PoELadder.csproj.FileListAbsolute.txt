@@ -89,3 +89,6 @@ C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.pdb
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Initial_migration.resources
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.csproj.GenerateResource.cache
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.added_twitch.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.removed_RootObject.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.removed_twitch.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Added_Challenges_added_depth.resources

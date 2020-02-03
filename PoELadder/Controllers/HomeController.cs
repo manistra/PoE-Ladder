@@ -39,6 +39,7 @@ namespace PoELadder.Controllers
 
             return View();
         }
+
         [HttpPost]
         public async Task<ActionResult> LadderView(string Leagues)  //FIX THIS 1 
         {            
