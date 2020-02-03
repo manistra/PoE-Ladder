@@ -34,7 +34,7 @@ else
                 <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name)> @entry.Account.Name </a></td>
                 @if (entry.Dead == true)
                 {
-                    <td><img src='@Url.Content("~/Content/skull.png")' style="height: 1em; width: 1em;" /><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name + "/characters")> @entry.Character.Name </a></td>
+                    <td><img title="Dead" src='@Url.Content("~/Content/skull.png")' style="height: 1em; width: 1em;" /><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name + "/characters")> @entry.Character.Name </a></td>
                 }
                 else
                 {

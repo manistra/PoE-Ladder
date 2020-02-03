@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202002032109221_Added_Challenges_added_depth.designer.cs">
       <DependentUpon>202002032109221_Added_Challenges_added_depth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002032203190_added_db_sets_for_depth_and_challanges.cs" />
+    <Compile Include="Migrations\202002032203190_added_db_sets_for_depth_and_challanges.designer.cs">
+      <DependentUpon>202002032203190_added_db_sets_for_depth_and_challanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -484,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002032109221_Added_Challenges_added_depth.resx">
       <DependentUpon>202002032109221_Added_Challenges_added_depth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002032203190_added_db_sets_for_depth_and_challanges.resx">
+      <DependentUpon>202002032203190_added_db_sets_for_depth_and_challanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

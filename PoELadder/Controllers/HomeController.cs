@@ -14,7 +14,18 @@ namespace PoELadder.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public async Task<ActionResult> Index()
         {
             var res = await "http://api.pathofexile.com/leagues".GetStringAsync();
@@ -22,7 +33,7 @@ namespace PoELadder.Controllers
             List<EntriesLeaguesDto> data = JsonConvert.DeserializeObject<List<EntriesLeaguesDto>>(res);
 
             
-            List<SelectListItem> leagues = new List<SelectListItem>() { };
+            List<SelectListItem> league = new List<SelectListItem>() { };
 
             for (int i = 0; i < data.Count(); i++)
                 {
@@ -31,29 +42,32 @@ namespace PoELadder.Controllers
                         Text = data[i].Id,  //FIX THIS 1 
                         Value = data[i].Id  //FIX THIS 1 
                     };
-                leagues.Add(item);
+                league.Add(item);
                 };
 
-            ViewBag.Leagues = leagues;           
+            ViewBag.League = league;           
 
 
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult> LadderView(string Leagues)  //FIX THIS 1 
-        {            
-            string link = "http://api.pathofexile.com/ladders/" + Leagues + "/?limit=200";  //FIX THIS 1 
+        public async Task<ActionResult> LadderView(string League)  //FIX THIS 1 
+        {
+            List<EntryDto> lista = new List<EntryDto> { };
 
-            var res = await link.GetStringAsync();
+            for (int i = 0; i < 75; i++) { // i * 200 = number of shown players
 
-            RootobjectDto data = JsonConvert.DeserializeObject<RootobjectDto>(res);
+                string link = "http://api.pathofexile.com/ladders/" + League + "?offset=" + i*200 + "&limit=200";  //FIX THIS 1 
 
-            IEnumerable<EntryDto> entries = data.Entries.ToList();
+                var res = await link.GetStringAsync();
 
+                RootobjectDto data = JsonConvert.DeserializeObject<RootobjectDto>(res);
 
+                lista.AddRange(data.Entries.ToList());
+            }
 
-
+            IEnumerable<EntryDto> entries = lista;
 
             return View(entries);
         }

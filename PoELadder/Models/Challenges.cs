@@ -7,6 +7,7 @@ namespace PoELadder.Models
 {
     public class Challenges
     {
+        public int Id { get; set; }
         public int Total { get; set; }
     }
 }

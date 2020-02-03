@@ -7,6 +7,7 @@ namespace PoELadder.Models
 {
     public class Depth
     {
+        public int Id { get; set; }
         public int? Solo { get; set; }
     }
 }
