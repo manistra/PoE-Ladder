@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -172,19 +175,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Dtos\AccountDto.cs" />
-    <Compile Include="Dtos\ChallengesDto.cs" />
-    <Compile Include="Dtos\CharacterDto.cs" />
-    <Compile Include="Dtos\DepthDto.cs" />
-    <Compile Include="Dtos\EntryDto.cs" />
-    <Compile Include="Dtos\Leagues\EntriesLeaguesDto.cs" />
-    <Compile Include="Dtos\RootobjectDto.cs" />
-    <Compile Include="Dtos\TwitchDto.cs" />
+    <Compile Include="Dtos\External\AccountDto.cs" />
+    <Compile Include="Dtos\External\ChallengesDto.cs" />
+    <Compile Include="Dtos\External\CharacterDto.cs" />
+    <Compile Include="Dtos\External\DepthDto.cs" />
+    <Compile Include="Dtos\External\EntryDto.cs" />
+    <Compile Include="Dtos\External\EntriesLeaguesDto.cs" />
+    <Compile Include="Dtos\External\RootobjectDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,15 +215,31 @@
     <Compile Include="Migrations\202002032203190_added_db_sets_for_depth_and_challanges.designer.cs">
       <DependentUpon>202002032203190_added_db_sets_for_depth_and_challanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002062156044_removed_models_aka_deleted_table.cs" />
+    <Compile Include="Migrations\202002062156044_removed_models_aka_deleted_table.designer.cs">
+      <DependentUpon>202002062156044_removed_models_aka_deleted_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062215281_added_standard.cs" />
+    <Compile Include="Migrations\202002062215281_added_standard.designer.cs">
+      <DependentUpon>202002062215281_added_standard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062237006_Edited_the_model.cs" />
+    <Compile Include="Migrations\202002062237006_Edited_the_model.designer.cs">
+      <DependentUpon>202002062237006_Edited_the_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062244543_fml.cs" />
+    <Compile Include="Migrations\202002062244543_fml.designer.cs">
+      <DependentUpon>202002062244543_fml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002062249271_Added_StandardPlayer.cs" />
+    <Compile Include="Migrations\202002062249271_Added_StandardPlayer.designer.cs">
+      <DependentUpon>202002062249271_Added_StandardPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Challenges.cs" />
-    <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\Depth.cs" />
-    <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StandardPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -491,6 +510,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002032203190_added_db_sets_for_depth_and_challanges.resx">
       <DependentUpon>202002032203190_added_db_sets_for_depth_and_challanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062156044_removed_models_aka_deleted_table.resx">
+      <DependentUpon>202002062156044_removed_models_aka_deleted_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062215281_added_standard.resx">
+      <DependentUpon>202002062215281_added_standard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062237006_Edited_the_model.resx">
+      <DependentUpon>202002062237006_Edited_the_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062244543_fml.resx">
+      <DependentUpon>202002062244543_fml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002062249271_Added_StandardPlayer.resx">
+      <DependentUpon>202002062249271_Added_StandardPlayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

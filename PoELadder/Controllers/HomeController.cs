@@ -9,6 +9,7 @@ using PoELadder.Models;
 using PoELadder.Dtos.Leagues;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace PoELadder.Controllers
 {
@@ -52,13 +53,14 @@ namespace PoELadder.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> LadderView(string League)  //FIX THIS 1 
+        public async Task<ActionResult> LadderView(string League)  //FIX THIS 1 ++
         {
             List<EntryDto> lista = new List<EntryDto> { };
+            StandardPlayer entry = new StandardPlayer();
 
-            for (int i = 0; i < 75; i++) { // i * 200 = number of shown players
+            for (int i = 0; i < 1; i++) { // i * 200 = number of shown players
 
-                string link = "http://api.pathofexile.com/ladders/" + League + "?offset=" + i*200 + "&limit=200";  //FIX THIS 1 
+                string link = "http://api.pathofexile.com/ladders/" + "Standard" + "?offset=" + i*200 + "&limit=2";  //FIX THIS 1 
 
                 var res = await link.GetStringAsync();
 
@@ -66,8 +68,33 @@ namespace PoELadder.Controllers
 
                 lista.AddRange(data.Entries.ToList());
             }
+                _context.StandardPlayers.RemoveRange(_context.StandardPlayers);
+                _context.SaveChanges();
 
-            IEnumerable<EntryDto> entries = lista;
+            foreach (var item in lista) {
+
+                entry.Rank = item.Rank;
+                entry.Dead = item.Dead;
+                entry.Online = item.Online;
+                entry.AccountName = item.Account.Name;
+                entry.TotalChallenges = item.Account.Challenges.Total;
+                entry.CharacterName = item.Character.Name;
+                entry.CharacterLevel = item.Character.Level;
+                entry.CharacterClass = item.Character.Class;
+                if (item.Character.Depth != null)
+                {
+                    entry.CharacterDepthSolo = item.Character.Depth.Solo;
+                }
+                else
+                {
+                    entry.CharacterDepthSolo = 0;
+                }
+
+                _context.StandardPlayers.Add(entry);
+                _context.SaveChanges();
+            };
+
+            IEnumerable<StandardPlayer> entries = _context.StandardPlayers;      
 
             return View(entries);
         }

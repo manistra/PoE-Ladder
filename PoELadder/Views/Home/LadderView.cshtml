@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PoELadder.Models.EntryDto>
+﻿@model IEnumerable<PoELadder.Models.StandardPlayer>
 @{
     ViewBag.Title = "LadderView";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,30 +28,31 @@ else
         <tbody>
             @foreach (var entry in Model)
             {
-            <tr>
-                <td>@entry.Rank</td>
-                <td>@entry.Character.Level</td>
-                <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name)> @entry.Account.Name </a></td>
-                @if (entry.Dead == true)
-                {
-                    <td><img title="Dead" src='@Url.Content("~/Content/skull.png")' style="height: 1em; width: 1em;" /><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name + "/characters")> @entry.Character.Name </a></td>
-                }
-                else
-                {
-                    <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.Account.Name + "/characters")> @entry.Character.Name </a></td>
-                }
+                <tr>
+                    <td>@entry.Rank</td>
+                    <td>@entry.CharacterLevel</td>
+                    <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
 
-                <td>@entry.Character.Class</td>
-                @if (entry.Character.Depth == null)
-                {
-                    <td>0</td>
-                }
-                else
-                {
-                    <td>@entry.Character.Depth.Solo</td>
-                }
-                <td>@entry.Account.Challenges.Total</td>
-            </tr>
+                    @if (entry.Dead == true)
+                    {
+                        <td><img title="Dead" src='@Url.Content("~/Content/skull.png")' style="height: 1em; width: 1em;" /><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName + "/characters")> @entry.CharacterName </a></td>
+                    }
+                    else
+                    {
+                        <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName + "/characters")> @entry.CharacterName </a></td>
+                    }
+
+                    <td>@entry.CharacterClass</td>
+                    @if (entry.CharacterDepthSolo == null)
+                    {
+                        <td>0</td>
+                    }
+                    else
+                    {
+                        <td>@entry.CharacterDepthSolo</td>
+                    }
+                    <td>@entry.TotalChallenges</td>
+                </tr>
             }
         </tbody>
     </table>

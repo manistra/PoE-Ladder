@@ -93,3 +93,10 @@ C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.r
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.removed_twitch.resources
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Added_Challenges_added_depth.resources
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.added_db_sets_for_depth_and_challanges.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\bin\AutoMapper.dll
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\bin\AutoMapper.xml
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.removed_models_aka_deleted_table.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.added_standard.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Edited_the_model.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.fml.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Added_StandardPlayer.resources

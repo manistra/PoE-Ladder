@@ -20,12 +20,8 @@ namespace PoELadder.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        
-        public DbSet<Entry> Entries { get; set; }
-        public DbSet<Character> Characters { get; set; }
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Challenges> Challenges { get; set; }
-        public DbSet<Depth> Depth { get; set; }
+        public DbSet<StandardPlayer> StandardPlayers { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
