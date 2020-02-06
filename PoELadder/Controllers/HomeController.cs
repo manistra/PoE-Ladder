@@ -60,7 +60,7 @@ namespace PoELadder.Controllers
 
             for (int i = 0; i < 1; i++) { // i * 200 = number of shown players
 
-                string link = "http://api.pathofexile.com/ladders/" + "Standard" + "?offset=" + i*200 + "&limit=2";  //FIX THIS 1 
+                string link = "http://api.pathofexile.com/ladders/" + League + "?offset=" + i*200 + "&limit=200";  //FIX THIS 1 
 
                 var res = await link.GetStringAsync();
 
