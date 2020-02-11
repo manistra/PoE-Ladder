@@ -55,7 +55,7 @@ namespace PoELadder.Controllers
         [HttpPost]
         public async Task<ActionResult> LadderView(string League)  //FIX THIS 1 ++
         {
-            List<EntryDto> lista = new List<EntryDto> { };
+            List<EntryDto> entries = new List<EntryDto> { };
             StandardPlayer entry = new StandardPlayer();
 
             for (int i = 0; i < 1; i++) { // i * 200 = number of shown players
@@ -66,12 +66,12 @@ namespace PoELadder.Controllers
 
                 RootobjectDto data = JsonConvert.DeserializeObject<RootobjectDto>(res);
 
-                lista.AddRange(data.Entries.ToList());
+                entries.AddRange(data.Entries.ToList());
             }
                 _context.StandardPlayers.RemoveRange(_context.StandardPlayers);
                 _context.SaveChanges();
 
-            foreach (var item in lista) {
+            foreach (var item in entries) {
 
                 entry.Rank = item.Rank;
                 entry.Dead = item.Dead;
@@ -94,9 +94,9 @@ namespace PoELadder.Controllers
                 _context.SaveChanges();
             };
 
-            IEnumerable<StandardPlayer> entries = _context.StandardPlayers;      
+            IEnumerable<StandardPlayer> viewList = _context.StandardPlayers;      
 
-            return View(entries);
+            return View(viewList);
         }
     }
 }

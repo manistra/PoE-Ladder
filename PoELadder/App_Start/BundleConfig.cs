@@ -23,7 +23,7 @@ namespace PoELadder
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-poe.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/Site.css"));
         }

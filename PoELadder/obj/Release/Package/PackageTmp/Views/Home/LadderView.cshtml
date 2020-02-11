@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PoELadder.Models.StandardPlayer>
+@{
+    ViewBag.Title = "LadderView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <p>Something went wrong.</p>
+}
+else
+{
+   
+    <table id="profiles" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Level</th>
+                <th>Account Name</th>
+                <th>Character Name</th>
+                <th>Class</th>
+                <th>Depth</th>
+                <th>Challenges completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.Rank</td>
+                    <td>@entry.CharacterLevel</td>
+                    @if (entry.Online == true)
+                {
+                    <td><img title="Online" src='@Url.Content("~/Content/online.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                }
+                else
+                {
+                    <td><img title="Offline" src='@Url.Content("~/Content/offline.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                }                   
+
+                    @if (entry.Dead == true)
+                    {
+                        <td><img title="Dead" src='@Url.Content("~/Content/skull.png")' style="height: 1em; width: 1em;" /><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName + "/characters")> @entry.CharacterName </a></td>
+                    }
+                    else
+                    {
+                        <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName + "/characters")> @entry.CharacterName </a></td>
+                    }
+
+                    <td>@entry.CharacterClass</td>
+                    @if (entry.CharacterDepthSolo == null)
+                    {
+                        <td>0</td>
+                    }
+                    else
+                    {
+                        <td>@entry.CharacterDepthSolo</td>
+                    }
+                    <td>@entry.TotalChallenges</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#profiles").DataTable();
+        });
+    </script>
+}

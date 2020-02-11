@@ -100,3 +100,4 @@ C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.a
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Edited_the_model.resources
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.fml.resources
 C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.Added_StandardPlayer.resources
+C:\Users\lor3n\source\repos\PoELadder\PoELadder\obj\Debug\PoELadder.Migrations.added_League_classes.resources

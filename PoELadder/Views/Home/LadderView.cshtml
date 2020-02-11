@@ -10,9 +10,7 @@
 }
 else
 {
-    <br>
-    <br>
-    <br>
+   
     <table id="profiles" class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -31,7 +29,14 @@ else
                 <tr>
                     <td>@entry.Rank</td>
                     <td>@entry.CharacterLevel</td>
-                    <td><a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                    @if (entry.Online == true)
+                {
+                    <td><img title="Online" src='@Url.Content("~/Content/online.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                }
+                else
+                {
+                    <td><img title="Offline" src='@Url.Content("~/Content/offline.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                }                   
 
                     @if (entry.Dead == true)
                     {

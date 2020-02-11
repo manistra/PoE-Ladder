@@ -1,0 +1,21 @@
+﻿@model IEnumerable<PoELadder.Dtos.Leagues.EntriesLeaguesDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+
+
+@using (Html.BeginForm("LadderView", "Home"))
+{
+<div>
+    <h2 style="margin: auto; width: 100%;  text-align: center;">Select a league:</h2>
+    <br>
+    <div class="form-group" style="margin: auto; width: 25%;  text-align: center;">
+        @Html.DropDownList("League", (IEnumerable<SelectListItem>)ViewBag.League, new { @class = "form-control" })
+    </div>
+    <br>
+    <button style="width:15%; margin:0 auto; display:block;" type="submit" class="btn btn-primary" id="checkout">Go</button>
+</div>
+}

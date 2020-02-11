@@ -235,18 +235,25 @@
     <Compile Include="Migrations\202002062249271_Added_StandardPlayer.designer.cs">
       <DependentUpon>202002062249271_Added_StandardPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002111944507_added_League_classes.cs" />
+    <Compile Include="Migrations\202002111944507_added_League_classes.designer.cs">
+      <DependentUpon>202002111944507_added_League_classes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\StandardPlayer.cs" />
+    <Compile Include="Models\CurrentLeagueHCPlayer.cs" />
+    <Compile Include="Models\CurrentLeagueHCSSFPlayer.cs" />
+    <Compile Include="Models\CurrentLeaguePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap-poe.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -356,6 +363,8 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\icon.png" />
+    <Content Include="Content\offline.png" />
+    <Content Include="Content\online.png" />
     <Content Include="Content\skull.png" />
     <Content Include="Content\skull2.png" />
     <Content Include="Content\twitch.png" />
@@ -367,6 +376,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\PoELadder - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -525,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002062249271_Added_StandardPlayer.resx">
       <DependentUpon>202002062249271_Added_StandardPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002111944507_added_League_classes.resx">
+      <DependentUpon>202002111944507_added_League_classes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
