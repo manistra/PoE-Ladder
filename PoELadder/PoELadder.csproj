@@ -239,10 +239,26 @@
     <Compile Include="Migrations\202002111944507_added_League_classes.designer.cs">
       <DependentUpon>202002111944507_added_League_classes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005181602446_added_standard_player_entries.cs" />
+    <Compile Include="Migrations\202005181602446_added_standard_player_entries.designer.cs">
+      <DependentUpon>202005181602446_added_standard_player_entries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005181609220_added_standard_player_entries1.cs" />
+    <Compile Include="Migrations\202005181609220_added_standard_player_entries1.designer.cs">
+      <DependentUpon>202005181609220_added_standard_player_entries1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005181621255_added_models.cs" />
+    <Compile Include="Migrations\202005181621255_added_models.designer.cs">
+      <DependentUpon>202005181621255_added_models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CurrentLeagueSSFPlayer.cs" />
+    <Compile Include="Models\StandardHCPlayer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StandardHCSSFPlayer.cs" />
+    <Compile Include="Models\StandardSSFPlayer.cs" />
     <Compile Include="Models\StandardPlayer.cs" />
     <Compile Include="Models\CurrentLeagueHCPlayer.cs" />
     <Compile Include="Models\CurrentLeagueHCSSFPlayer.cs" />
@@ -538,6 +554,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002111944507_added_League_classes.resx">
       <DependentUpon>202002111944507_added_League_classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005181602446_added_standard_player_entries.resx">
+      <DependentUpon>202005181602446_added_standard_player_entries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005181609220_added_standard_player_entries1.resx">
+      <DependentUpon>202005181609220_added_standard_player_entries1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005181621255_added_models.resx">
+      <DependentUpon>202005181621255_added_models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

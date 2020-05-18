@@ -56,7 +56,7 @@ namespace PoELadder.Controllers
         public async Task<ActionResult> LadderView(string League)  //FIX THIS 1 ++
         {
             List<EntryDto> entries = new List<EntryDto> { };
-            StandardPlayer entry = new StandardPlayer();
+            CurrentLeagueSSFPlayer entry = new CurrentLeagueSSFPlayer();
 
             for (int i = 0; i < 1; i++) { // i * 200 = number of shown players
 
@@ -68,7 +68,7 @@ namespace PoELadder.Controllers
 
                 entries.AddRange(data.Entries.ToList());
             }
-                _context.StandardPlayers.RemoveRange(_context.StandardPlayers);
+                _context.CurrentLeagueSSFPlayers.RemoveRange(_context.CurrentLeagueSSFPlayers);
                 _context.SaveChanges();
 
             foreach (var item in entries) {
@@ -90,11 +90,11 @@ namespace PoELadder.Controllers
                     entry.CharacterDepthSolo = 0;
                 }
 
-                _context.StandardPlayers.Add(entry);
+                _context.CurrentLeagueSSFPlayers.Add(entry);
                 _context.SaveChanges();
             };
 
-            IEnumerable<StandardPlayer> viewList = _context.StandardPlayers;      
+            IEnumerable<CurrentLeagueSSFPlayer> viewList = _context.CurrentLeagueSSFPlayers;      
 
             return View(viewList);
         }

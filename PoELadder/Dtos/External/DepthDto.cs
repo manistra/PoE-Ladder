@@ -10,5 +10,8 @@ namespace PoELadder.Dtos
     {
         [JsonProperty("solo")]
         public int? Solo { get; set; }
+        
+        [JsonProperty("default")]
+        public int? Default { get; set; }
     }
 }

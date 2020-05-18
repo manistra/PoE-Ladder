@@ -21,7 +21,11 @@ namespace PoELadder.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<StandardPlayer> StandardPlayers { get; set; }
+        public DbSet<StandardHCPlayer> StandardHCPlayers { get; set; }
+        public DbSet<StandardSSFPlayer> StandardSSFPlayers { get; set; }
+        public DbSet<StandardHCSSFPlayer> StandardHCSSFPlayers { get; set; }
         public DbSet<CurrentLeaguePlayer> CurrentLeaguePlayers { get; set; }
+        public DbSet<CurrentLeagueSSFPlayer> CurrentLeagueSSFPlayers { get; set; }
         public DbSet<CurrentLeagueHCPlayer> CurrentLeagueHCPlayers { get; set; }
         public DbSet<CurrentLeagueHCSSFPlayer> CurrentLeagueHCSSFPlayers { get; set; }
 
