@@ -266,6 +266,8 @@
     <Compile Include="Models\CurrentLeaguePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\FilterViewModel.cs" />
+    <Compile Include="ViewModels\LadderViewModel.cs" />
     <Compile Include="ViewModels\PlayersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

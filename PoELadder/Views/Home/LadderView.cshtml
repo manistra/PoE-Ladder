@@ -1,16 +1,50 @@
-﻿@model IEnumerable<PoELadder.ViewModels.PlayersViewModel>
+﻿@model PoELadder.ViewModels.LadderViewModel
 @{
     ViewBag.Title = "LadderView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (!Model.Any())
+
+
+
+
+
+
+@using (Html.BeginForm("FilterView", "Home"))
+{   
+    <div class="form-group" style="display:inline">
+        @Html.LabelFor(m => m.Filter.Class, new { style = "" }):
+        @Html.DropDownListFor(m => m.Filter.Class,
+        new SelectList(Enum.GetValues(typeof(PoELadder.ViewModels.FilterViewModel.Classes))), new { @class = "form-control", style = "width:9em; height:2em; display:inline; margin-right:2em;" })
+        <p style="font-weight: bold; display:inline;">Level range:</p>
+        @Html.TextBoxFor(m => m.Filter.LevelBottom, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline;" })
+        @Html.TextBoxFor(m => m.Filter.LevelTop, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+        <p style="font-weight: bold; display:inline;">Rank range:</p>
+        @Html.TextBoxFor(m => m.Filter.RankBottom, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline;" })
+        @Html.TextBoxFor(m => m.Filter.RankTop, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+        <p style="font-weight: bold; display:inline;">Min Depth:</p>
+        @Html.TextBoxFor(m => m.Filter.Depth, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+        @Html.LabelFor(m => m.Filter.Online):
+        @Html.CheckBoxFor(m => m.Filter.Online, new { style = "width:1.3em; height:1.3em; display:inline; position:relative; top:0.3em; color: #baaa91; margin-right:2em;" })
+        @Html.HiddenFor(m => m.SelectedLeague, Model.SelectedLeague)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Class)
+    </div>
+    <div class="form-group" style="display:inline">
+        <button style="float: right; margin:0 auto; display:inline;" type="submit" class="btn btn-primary" id="checkout">Filter table</button>
+    </div>
+   
+    <hr />
+}
+
+
+
+
+@if (!Model.Players.Any())
 {
-    <p>Something went wrong.</p>
+    <p>No results to show.</p>
 }
 else
 {
-   
     <table id="profiles" class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -24,19 +58,19 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var entry in Model)
+            @foreach (var entry in Model.Players)
             {
                 <tr>
                     <td>@entry.Rank</td>
                     <td>@entry.CharacterLevel</td>
                     @if (entry.Online == true)
-                {
-                    <td><img title="Online" src='@Url.Content("~/Content/online.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
-                }
-                else
-                {
-                    <td><img title="Offline" src='@Url.Content("~/Content/offline.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
-                }                   
+                    {
+                        <td><img title="Online" src='@Url.Content("~/Content/online.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                    }
+                    else
+                    {
+                        <td><img title="Offline" src='@Url.Content("~/Content/offline.png")' style="height: 1em; width: 1em;" />&nbsp <a href=@("https://www.pathofexile.com/account/view-profile/" + entry.AccountName)> @entry.AccountName </a></td>
+                    }
 
                     @if (entry.Dead == true)
                     {
