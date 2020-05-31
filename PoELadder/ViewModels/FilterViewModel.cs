@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace PoELadder.ViewModels
 {
@@ -10,21 +12,37 @@ namespace PoELadder.ViewModels
     {
         public FilterViewModel()
         {
-            this.RankTop = 200;
+            this.RankTop = 100;
             this.RankBottom = 1;
             this.LevelBottom = 1;
             this.LevelTop = 100;
             this.Class = "All";
+            this.Challenges = 0;
+            this.Dead = false;
+            this.Online = false;
         }
 
         public string Class { get; set; }
+        [Range(0, 40)]
+        [Display(Name = "Challenges")]
+        public int Challenges { get; set; }
+        [Range(2, 15000)]
+        [Display(Name = "Max Rank")]
+        public int RankTop { get; set; }
+        [Range(1, 14999)]
+        [Display(Name = "Min Rank")]
+        public int RankBottom { get; set; }
+        [Range(2, 100)]
+        [Display(Name = "Max Level")]
+        public int LevelTop { get; set; }
+        [Range(1, 99)]
+        [Display(Name = "Min Level")]
+        public int LevelBottom { get; set; }
+        [Range(0, 15000)]
+        [Display(Name = "Depth")]
+        public int Depth { get; set; }
         public bool Dead { get; set; }
         public bool Online { get; set; }
-        public int RankTop { get; set; }
-        public int RankBottom { get; set; }
-        public int LevelTop { get; set; }
-        public int LevelBottom { get; set; }
-        public int Depth { get; set; }
         public enum Classes
         {
             All,

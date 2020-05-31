@@ -16,42 +16,42 @@ namespace PoELadder.Models
                 new SelectListItem
                     {
                         Text ="Standard" ,
-                        Value = "StandardPlayer"
+                        Value = "Standard"
                     },
                 new SelectListItem
                     {
                         Text = "Hardcore",
-                        Value = "StandardHCPlayer"
+                        Value = "Hardcore"
                     },
                 new SelectListItem
                     {
                         Text = "SSF Standard",
-                        Value = "StandardSSFPlayer"
+                        Value = "SSF Standard"
                     },
                 new SelectListItem
                     {
                         Text = "SSF Hardcore",
-                        Value = "StandardHCSSFPlayer"
+                        Value = "SSF Hardcore"
                     },
                 new SelectListItem
                     {
                         Text = "Delirium",
-                        Value = "CurrentLeaguePlayer"
+                        Value = "Delirium"
                     },
                 new SelectListItem
                     {
                         Text = "Hardcore Delirium",
-                        Value = "CurrentLeagueHCPlayer"
+                        Value = "Hardcore Delirium"
                     },
                 new SelectListItem
                     {
                         Text = "SSF Delirium",
-                        Value = "CurrentLeagueSSFPlayer"
+                        Value = "SSF Delirium"
                     },
                 new SelectListItem
                     {
                         Text = "SSF Delirium HC",
-                        Value = "CurrentLeagueHCSSFPlayer"
+                        Value = "SSF Delirium HC"
                     },
             };
             return leagues;

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PoELadder.Dtos.Leagues.EntriesLeaguesDto>
+﻿@model PoELadder.ViewModels.LadderViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,13 +7,21 @@
 <br>
 
 
-@using (Html.BeginForm("LadderView", "Home"))
+@using (Html.BeginForm("Ladder", "Home"))
 {
 <div>
     <h2 style="margin: auto; width: 100%;  text-align: center;">Select a league:</h2>
     <br>
     <div class="form-group" style="margin: auto; width: 25%;  text-align: center;">
-        @Html.DropDownList("League", (IEnumerable<SelectListItem>)ViewBag.League, new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.SelectedLeague, (IEnumerable<SelectListItem>)ViewBag.League, new { @class = "form-control" })
+        @Html.HiddenFor(m => m.SelectedLeague, Model.SelectedLeague)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Class)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Dead)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Online)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.LevelBottom)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.LevelTop)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.RankBottom)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.RankTop)
     </div>
     <br>
     <button style="width:15%; margin:0 auto; display:block;" type="submit" class="btn btn-primary" id="checkout">Go</button>

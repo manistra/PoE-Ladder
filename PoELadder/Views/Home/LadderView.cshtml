@@ -4,40 +4,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using (Html.BeginForm("Ladder", "Home"))
+{
 
-
-
-
-
-
-@using (Html.BeginForm("FilterView", "Home"))
-{   
-    <div class="form-group" style="display:inline">
-        @Html.LabelFor(m => m.Filter.Class, new { style = "" }):
-        @Html.DropDownListFor(m => m.Filter.Class,
-        new SelectList(Enum.GetValues(typeof(PoELadder.ViewModels.FilterViewModel.Classes))), new { @class = "form-control", style = "width:9em; height:2em; display:inline; margin-right:2em;" })
-        <p style="font-weight: bold; display:inline;">Level range:</p>
-        @Html.TextBoxFor(m => m.Filter.LevelBottom, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline;" })
-        @Html.TextBoxFor(m => m.Filter.LevelTop, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
-        <p style="font-weight: bold; display:inline;">Rank range:</p>
-        @Html.TextBoxFor(m => m.Filter.RankBottom, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline;" })
-        @Html.TextBoxFor(m => m.Filter.RankTop, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
-        <p style="font-weight: bold; display:inline;">Min Depth:</p>
-        @Html.TextBoxFor(m => m.Filter.Depth, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
-        @Html.LabelFor(m => m.Filter.Online):
-        @Html.CheckBoxFor(m => m.Filter.Online, new { style = "width:1.3em; height:1.3em; display:inline; position:relative; top:0.3em; color: #baaa91; margin-right:2em;" })
+    <div class="form-group" style="margin: auto; width: 25%; display:inline; ">
+        @Html.DropDownListFor(m => m.SelectedLeague, (IEnumerable<SelectListItem>)ViewBag.League, new { @class = "form-control", style = "float:right; width: 15em; display:inline;", @onchange = "form.submit();" })
+        &nbsp;&nbsp;&nbsp;&nbsp;<p style="margin-top:0em; font-size: 1.5em; font-weight: bold; float:right; display:inline;">League:</p> &nbsp;
         @Html.HiddenFor(m => m.SelectedLeague, Model.SelectedLeague)
         @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Class)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Dead)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Online)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.LevelBottom)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.LevelTop)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.RankBottom)
+        @Html.HiddenFor(m => m.Filter.Class, Model.Filter.RankTop)
     </div>
-    <div class="form-group" style="display:inline">
-        <button style="float: right; margin:0 auto; display:inline;" type="submit" class="btn btn-primary" id="checkout">Filter table</button>
+
+}
+@using (Html.BeginForm("Ladder", "Home"))
+{<div>
+
+        @Html.ValidationMessageFor(m => m.Filter.LevelBottom)
+        @Html.ValidationMessageFor(m => m.Filter.LevelTop)
+        @Html.ValidationMessageFor(m => m.Filter.RankTop)
+        @Html.ValidationMessageFor(m => m.Filter.RankBottom)
+        @Html.ValidationMessageFor(m => m.Filter.Depth)
+        @Html.ValidationMessageFor(m => m.Filter.Challenges)
+        <hr />
+        <div class="form-group" style="display:inline">
+            @Html.LabelFor(m => m.Filter.Class, new { style = "" }):
+            @Html.DropDownListFor(m => m.Filter.Class,
+            new SelectList(Enum.GetValues(typeof(PoELadder.ViewModels.FilterViewModel.Classes))), new { @class = "form-control", style = "width:9em; height:2em; display:inline; margin-right:2em;" })
+            <p style="font-weight: bold; display:inline;"> Is character online?:</p>
+            @Html.CheckBoxFor(m => m.Filter.Online, new { style = "width:1.3em; height:1.3em; display:inline; position:relative; top:0.3em; color: #baaa91; margin-right:2em;" })
+            @if (Model.SelectedLeague == "Hardcore" || Model.SelectedLeague == "SSF Hardcore" || Model.SelectedLeague == "Hardcore Delirium" || Model.SelectedLeague == "SSF Delirium HC")
+            {
+                <div style="display:inline">
+                    <p style="font-weight: bold; display: inline;"> Is character dead?:</p>
+                    @Html.CheckBoxFor(m => m.Filter.Dead, new { style = "width:1.3em; height:1.3em; display:inline; position:relative; top:0.3em; color: #baaa91; margin-right:2em;" })
+                </div>
+            }
+            <br />
+            <br />
+            <p style="font-weight: bold; display:inline;">Level range:</p>
+            @Html.TextBoxFor(m => m.Filter.LevelBottom, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline;" })
+            @Html.TextBoxFor(m => m.Filter.LevelTop, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+            <p style="font-weight: bold; display:inline;">Rank range:</p>
+            @Html.TextBoxFor(m => m.Filter.RankBottom, new { @class = "form-control", @type = "number", style = "width:6.1em; height:1.5em; display:inline;" })
+            @Html.TextBoxFor(m => m.Filter.RankTop, new { @class = "form-control", @type = "number", style = "width:6.1em; height:1.5em; display:inline; margin-right:2em;" })
+            <p style="font-weight: bold; display:inline;">Depth:</p>
+            @Html.TextBoxFor(m => m.Filter.Depth, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+
+            <p style="font-weight: bold; display:inline;">Challenges completed:</p>
+            @Html.TextBoxFor(m => m.Filter.Challenges, new { @class = "form-control", @type = "number", style = "width:5em; height:1.5em; display:inline; margin-right:2em;" })
+
+
+            @Html.HiddenFor(m => m.SelectedLeague, Model.SelectedLeague)
+            @Html.HiddenFor(m => m.Filter.Class, Model.Filter.Class)
+        </div>
+        <div class="form-group" style="display:inline">
+            <button style="float: right; height:4.7em; margin-top:-3.3em; display:inline;" type="submit" class="btn btn-primary" id="checkout">Apply filters</button>
+        </div>
+        <br />
     </div>
-   
     <hr />
 }
-
-
-
 
 @if (!Model.Players.Any())
 {
