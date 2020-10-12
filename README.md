@@ -1,6 +1,6 @@
 # PathOfExileLadderProject
 
-Demo video: https://poeladder.azurewebsites.net/
+Demo video: https://youtu.be/Ex-nm79LxWM
 
 "Pre-alpha" verzija stranice na kojoj sam radio, kao samozadani projekt, u svrhu je 
 usavršavanja ASP. NET, MVC tehnologije. Trenutno ne postoji jednostavan način da korisnici 
